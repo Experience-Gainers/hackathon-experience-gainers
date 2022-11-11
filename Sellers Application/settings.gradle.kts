@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Buyer's Application"
+rootProject.name = "Seller's Application"
 include(":app")
