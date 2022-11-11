@@ -44,4 +44,14 @@ dependencies {
     testImplementation(Dependencies.TestDependencies.jUnit)
     androidTestImplementation(Dependencies.TestDependencies.jUnitExt)
     androidTestImplementation(Dependencies.TestDependencies.espresso)
+
+    implementation(Dependencies.Koin.koinCore)
+    implementation(Dependencies.Koin.koinAndroid)
+
+    implementation(Dependencies.Coroutines.coroutines)
+
+    implementation(Dependencies.Lifecycle.viewmodel)
+
+    implementation(Dependencies.Navigation.navigation)
+    implementation(Dependencies.Navigation.navigationUI)
 }
