@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="QIWI Payment"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="60dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/consumer_login_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.88" />
+
+    <Button
+        android:id="@+id/consumer_login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Войти как покупатель"
+        app:layout_constraintEnd_toEndOf="@+id/header"
+        app:layout_constraintStart_toStartOf="@+id/header"
+        tools:layout_editor_absoluteY="378dp" />
+
+    <Button
+        android:id="@+id/seller_login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Войти как продавец"
+        app:layout_constraintEnd_toEndOf="@+id/consumer_login_btn"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="@+id/consumer_login_btn"
+        app:layout_constraintTop_toBottomOf="@+id/consumer_login_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
