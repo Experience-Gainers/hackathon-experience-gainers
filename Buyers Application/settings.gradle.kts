@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Buyer's Application"
-include ':app'
+include(":app")
