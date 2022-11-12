@@ -31,7 +31,14 @@ class FragmentLogin: Fragment() {
     }
 
     private fun setButtonsClickListener() {
-        binding.loginButtonSeller.setOnClickListener { requireView().findNavController() }
-        binding.loginButtonConsumer.setOnClickListener { requireView().findNavController() }
+        binding.loginButtonSeller.setOnClickListener { view ->
+            val linkWithArgs = FragmentLoginDirections.loginToSeller(SELLER_ID)
+            view.findNavController().navigate(linkWithArgs)
+        }
+
+        binding.loginButtonConsumer.setOnClickListener { view ->
+            val linkWithArgs = FragmentLoginDirections.loginToConsumer(CONSUMER_ID)
+            view.findNavController().navigate(linkWithArgs)
+        }
     }
 }
