@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -55,4 +55,10 @@ dependencies {
 
     implementation(Dependencies.Navigation.navigation)
     implementation(Dependencies.Navigation.navigationUI)
+
+    implementation(Dependencies.Retrofit.retrofit)
+    implementation(Dependencies.Retrofit.gsonConverter)
+    implementation(Dependencies.Retrofit.okHttp)
+
+    implementation(Dependencies.Gson.gson)
 }
