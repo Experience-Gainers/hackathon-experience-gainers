@@ -10,7 +10,15 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--Qiwi palette-->
-    <color name="primary_color">#FF8C00</color>
-    <color name="primary_text_color">#FFFFFF</color>
-    <color name="secondary_text_color">#000000</color>
+    <color name="brand_color">#FF8C00</color>
+    <color name="default_text_color">#000000</color>
+    <color name="support_text_color">#666666</color>
+    <color name="disabled_color">#999999</color>
+    <color name="link_color">#0055BB</color>
+    <color name="error_color">#D0021B</color>
+    <color name="success_color">#4BBD5C</color>
+    <color name="wait_color">#FFB800</color>
+    <color name="warning_color">#FF8C00</color>
+    <color name="background_color">#F5F5F5</color>
+    <color name="content_block">#FFFFFF</color>
 </resources>

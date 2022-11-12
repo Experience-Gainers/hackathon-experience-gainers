@@ -11,42 +11,46 @@
         android:id="@+id/login_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:text="@string/login_header"
-        android:textColor="@color/secondary_text_color"
+        android:layout_marginTop="100dp"
+        style="@style/SellersApplication.Text.Headline1"
         android:textSize="60sp"
-        android:textStyle="bold"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+        android:text="@string/login_header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/login_button_consumer"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_qiwi"
+        android:contentDescription="@string/login_imageview_descr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_header"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/login_button_consumer"
+        style="@style/SellersApplication.Text.BodyL.Medium"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="16dp"
+        app:cornerRadius="16dp"
         android:text="@string/login_button_consumer"
-        android:textColor="@color/primary_text_color"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/login_button_seller"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/login_button_seller"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/SellersApplication.Text.BodyL.Medium"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="88dp"
+        app:cornerRadius="16dp"
         android:text="@string/login_button_seller"
-        android:textColor="@color/primary_text_color"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

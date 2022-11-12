@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SellersApplication.Text.BodyL.Medium"
+        parent="SellersApplication">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:rowHeight">24sp</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="SellersApplication.Text.BodyL.Regular"
+        parent="SellersApplication">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:rowHeight">24sp</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="SellersApplication.Text.BodyM.Medium"
+        parent="SellersApplication">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:rowHeight">20sp</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="SellersApplication.Text.BodyM.Regular"
+        parent="SellersApplication">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:rowHeight">24sp</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="SellersApplication.Text.BodyS"
+        parent="SellersApplication">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:rowHeight">16sp</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="SellersApplication.Text.Links"
+        parent="SellersApplication">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/link_color</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:rowHeight">24sp</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="SellersApplication.Text.Errors"
+        parent="SellersApplication">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/error_color</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:rowHeight">16sp</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="SellersApplication.Text.Money"
+        parent="SellersApplication">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:rowHeight">20sp</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+</resources>

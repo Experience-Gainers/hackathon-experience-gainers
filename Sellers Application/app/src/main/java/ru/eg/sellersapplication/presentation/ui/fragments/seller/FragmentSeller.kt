@@ -1,4 +1,4 @@
-package ru.eg.sellersapplication.presentation.ui.fragments
+package ru.eg.sellersapplication.presentation.ui.fragments.seller
 
 import androidx.fragment.app.Fragment
 

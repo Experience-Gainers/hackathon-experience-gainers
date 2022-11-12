@@ -1,8 +1,22 @@
 <resources>
     <string name="app_name">Seller\'s Application</string>
-    <string name="loginFragmentLabel">Login Page</string>
-    <string name="authFragmentLabel">Authentication</string>
+    <string name="label_login">Login Page</string>
+    <string name="label_auth">Authentication Page</string>
+    <string name="label_consumer">Consumer Page</string>
+    <string name="label_seller">Seller Page</string>
     <string name="login_header">QIWI Payment</string>
     <string name="login_button_consumer">Войти как покупатель</string>
     <string name="login_button_seller">Войти как продавец</string>
+    <string name="login_imageview_descr">QIWI Logo</string>
+    <string name="consumer_header">QIWI Consumer</string>
+    <string name="consumer_text_currentBalance">Текущий баланс:</string>
+    <string name="consumer_text_dbBalance">0 руб.</string>
+    <string name="consumer_button_makeQR">Сформировать токен</string>
+    <string name="consumer_text_aboutQR">QR вашего кошелька:</string>
+    <string name="consumer_image_description">QR-code of consumer</string>
+    <string name="seller_header">Название магазина</string>
+    <string name="seller_text_makeBill">Выставление счёта</string>
+    <string name="seller_text_pointSumBill">Укажите итоговую сумму покупки:</string>
+    <string name="seller_editText_sumOfBill">1000</string>
+    <string name="seller_button">Сканировать QR-код</string>
 </resources>
