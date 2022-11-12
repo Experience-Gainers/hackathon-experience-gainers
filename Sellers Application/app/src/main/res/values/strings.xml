@@ -22,4 +22,8 @@
     <string name="seller_button_confirm">Подтвердить</string>
     <string name="seller_button_OK">ОК</string>
     <string name="seller_text_stateSuccess">Платёж совершен</string>
+    <string name="consumer_text_billInformation">Информация о платеже</string>
+    <string name="consumer_text_textBillSum">Сумма</string>
+    <string name="consumer_text_billSum">1000 руб.</string>
+    <string name="consumer_button_confirmBill">Подтвердить</string>
 </resources>
