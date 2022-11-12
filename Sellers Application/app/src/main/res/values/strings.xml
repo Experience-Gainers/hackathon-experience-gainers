@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Seller\'s Application</string>
+    <string name="loginFragmentLabel">Login Page</string>
+    <string name="authFragmentLabel">Authentication</string>
+    <string name="login_header">QIWI Payment</string>
+    <string name="login_button_consumer">Войти как покупатель</string>
+    <string name="login_button_seller">Войти как продавец</string>
 </resources>

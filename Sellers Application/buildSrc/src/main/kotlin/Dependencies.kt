@@ -35,9 +35,11 @@ object Dependencies {
 
     object Navigation {
         private const val navigationVersion = "2.5.3"
+        private const val safeArgsVersion = "2.5.3"
 
         const val navigation = "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
         const val navigationUI = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+        const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:$safeArgsVersion"
     }
 
     object Lifecycle {
