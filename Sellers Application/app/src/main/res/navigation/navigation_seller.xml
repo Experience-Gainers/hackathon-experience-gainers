@@ -11,10 +11,6 @@
         app:nullable="true"
         android:defaultValue="null"/>
 
-    <fragment
-        android:id="@+id/fragment_seller"
-        android:name="ru.eg.sellersapplication.presentation.ui.fragments.seller.FragmentSeller"
-        android:label="@string/label_seller"
-        tools:layout="@layout/fragment_seller"/>
+
 
 </navigation>

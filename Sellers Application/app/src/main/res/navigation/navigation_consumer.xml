@@ -10,10 +10,6 @@
         app:nullable="true"
         android:defaultValue="null"/>
 
-    <fragment
-        android:id="@+id/fragment_consumer"
-        android:name="ru.eg.sellersapplication.presentation.ui.fragments.consumer.FragmentConsumer"
-        android:label="@string/label_consumer"
-        tools:layout="@layout/fragment_consumer"/>
+
 
 </navigation>

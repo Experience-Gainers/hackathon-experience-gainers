@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import ru.eg.sellersapplication.databinding.FragmentLoginBinding
-import ru.eg.sellersapplication.presentation.utils.constants.CONSUMER_ID
 import ru.eg.sellersapplication.presentation.utils.constants.SELLER_ID
 
 class FragmentLogin: Fragment() {
@@ -33,12 +32,12 @@ class FragmentLogin: Fragment() {
 
     private fun setButtonsClickListener() {
         binding.loginButtonSeller.setOnClickListener { view ->
-            val linkWithArgs = FragmentLoginDirections.loginToSeller(SELLER_ID)
+            val linkWithArgs = FragmentLoginDirections.loginToSeller()
             view.findNavController().navigate(linkWithArgs)
         }
 
         binding.loginButtonConsumer.setOnClickListener { view ->
-            val linkWithArgs = FragmentLoginDirections.loginToConsumer(CONSUMER_ID)
+            val linkWithArgs = FragmentLoginDirections.loginToConsumer()
             view.findNavController().navigate(linkWithArgs)
         }
     }

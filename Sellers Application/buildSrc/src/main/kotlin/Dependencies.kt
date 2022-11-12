@@ -75,4 +75,10 @@ object Dependencies {
 
         const val gson = "com.google.code.gson:gson:$gsonVersion"
     }
+
+    object ZxingEmbedded {
+        private const val zxingEmbeddedVersion = "4.3.0"
+
+        const val zxingEmbedded = "com.journeyapps:zxing-android-embedded:$zxingEmbeddedVersion"
+    }
 }
