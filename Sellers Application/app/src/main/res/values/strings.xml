@@ -16,7 +16,9 @@
     <string name="consumer_image_description">QR-code of consumer</string>
     <string name="seller_header">Название магазина</string>
     <string name="seller_text_makeBill">Выставление счёта</string>
-    <string name="seller_text_pointSumBill">Укажите итоговую сумму покупки:</string>
+    <string name="seller_text_pointSumBill">Итоговая сумма платежа:</string>
     <string name="seller_editText_sumOfBill">1000</string>
     <string name="seller_button">Сканировать QR-код</string>
+    <string name="seller_button_confirm">Подтвердить</string>
+    <string name="seller_button_OK">ОК</string>
 </resources>
