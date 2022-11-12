@@ -12,40 +12,120 @@
         style="@style/SellersApplication.Text.Headline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:text="@string/seller_text_makeBill"
-        android:textSize="20sp"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/seller_text_pointSumBill"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/seller_card_processing"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/seller_text_pointSumBill"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/seller_text_makeBill"
-        app:layout_constraintTop_toBottomOf="@+id/seller_text_makeBill" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="10sp">
 
-    <EditText
-        android:id="@+id/seller_editText_sumOfBill"
-        android:visibility="gone"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:inputType="text"
-        android:hint="@string/seller_editText_sumOfBill"
-        app:layout_constraintStart_toStartOf="@+id/seller_text_pointSumBill"
-        app:layout_constraintTop_toBottomOf="@+id/seller_text_pointSumBill" />
+        <LinearLayout
+            android:id="@+id/sellers_layout_processing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="44dp"
+            android:paddingBottom="48dp"
+            android:paddingHorizontal="68dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/seller_button"
+            <TextView
+                android:id="@+id/seller_text_pointSumBill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seller_text_pointSumBill"
+                android:textSize="11sp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/seller_text_makeBill"
+                app:layout_constraintTop_toBottomOf="@+id/seller_text_makeBill" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/seller_editText_sumOfBill"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="@string/seller_editText_sumOfBill"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="@+id/seller_text_pointSumBill"
+                    app:layout_constraintTop_toBottomOf="@+id/seller_text_pointSumBill" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/SellersApplication.Text.BodyL.Regular"
+                android:id="@+id/seller_button_confirmBill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="24dp"
+                app:cornerRadius="16dp"
+                android:text="@string/seller_button_confirm"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/seller_card_stateStatus"
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="10sp">
+
+        <LinearLayout
+            android:id="@+id/seller_layout_stateStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="32dp"
+            android:orientation="vertical">
+
+            <!--Здесь по дефолту будет успешно. Но при ошибке будем менять строку и картиночку-->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_state_success"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seller_text_stateSuccess"
+                android:layout_marginTop="24dp"
+                style="@style/SellersApplication.Text.Headline4"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/SellersApplication.Text.BodyL.Regular"
+                android:backgroundTint="@color/white"
+                android:text="@string/seller_button_OK"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"
+                android:textColor="@color/default_text_color"
+                />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/SellersApplication.Text.BodyL.Regular"
+        android:id="@+id/seller_button"
+        android:visibility="gone"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="36dp"
         android:layout_marginTop="12dp"
         app:cornerRadius="16dp"
         android:text="@string/seller_button"
