@@ -21,4 +21,5 @@
     <string name="seller_button">Сканировать QR-код</string>
     <string name="seller_button_confirm">Подтвердить</string>
     <string name="seller_button_OK">ОК</string>
+    <string name="seller_text_stateSuccess">Платёж совершен</string>
 </resources>

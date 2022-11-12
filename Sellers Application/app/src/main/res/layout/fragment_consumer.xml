@@ -8,6 +8,7 @@
     tools:context="ru.eg.sellersapplication.presentation.ui.fragments.consumer.FragmentConsumer">
 
     <TextView
+        style="@style/SellersApplication.Text.Headline1"
         android:id="@+id/consumer_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

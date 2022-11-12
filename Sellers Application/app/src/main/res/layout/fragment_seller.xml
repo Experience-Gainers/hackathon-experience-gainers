@@ -32,7 +32,7 @@
 
         <LinearLayout
             android:id="@+id/sellers_layout_processing"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -62,14 +62,19 @@
                     app:layout_constraintTop_toBottomOf="@+id/seller_text_pointSumBill" />
 
             <com.google.android.material.button.MaterialButton
+                style="@style/SellersApplication.Text.BodyL.Regular"
+                android:id="@+id/seller_button_confirmBill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/seller_button_confirm" />
+                android:paddingHorizontal="24dp"
+                app:cornerRadius="16dp"
+                android:text="@string/seller_button_confirm"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/seller_layout_confirmed"
+            android:visibility="gone"
+            android:id="@+id/seller_layout_stateStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="32dp"
@@ -85,13 +90,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Платёж совершен"
+                android:text="@string/seller_text_stateSuccess"
                 android:layout_marginTop="24dp"
                 style="@style/SellersApplication.Text.Headline4"/>
+
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/SellersApplication.Text.BodyS"
+                style="@style/SellersApplication.Text.BodyL.Regular"
                 android:backgroundTint="@color/white"
                 android:text="@string/seller_button_OK"
                 android:layout_marginTop="16dp"
@@ -103,10 +109,12 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.button.MaterialButton
+        style="@style/SellersApplication.Text.BodyL.Regular"
         android:id="@+id/seller_button"
         android:visibility="gone"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="36dp"
         android:layout_marginTop="12dp"
         app:cornerRadius="16dp"
         android:text="@string/seller_button"
