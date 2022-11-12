@@ -10,12 +10,25 @@
         android:name="ru.eg.sellersapplication.presentation.ui.fragments.login.FragmentLogin"
         android:label="@string/loginFragmentLabel"
         tools:layout="@layout/fragment_login">
-        <argument
-            android:name="pref_id"
-            app:argType="string"
-            app:nullable="true"
-            android:defaultValue="null"/>
+        <action
+            android:id="@+id/login_to_consumer"
+            app:destination="@id/navigation_consumer">
+            <argument
+                android:name="pref_id"
+                app:argType="string"/>
+        </action>
+        <action
+            android:id="@+id/login_to_seller"
+            app:destination="@id/navigation_seller">
+            <argument
+                android:name="pref_id"
+                app:argType="string"/>
+        </action>
     </fragment>
+
+    <include app:graph="@navigation/navigation_consumer"/>
+
+    <include app:graph="@navigation/navigation_seller"/>
 
     <fragment
         android:id="@+id/fragment_auth"
