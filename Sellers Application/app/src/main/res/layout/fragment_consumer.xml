@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:text="QIWI Consumer"
-        android:textColor="@color/black"
+        android:text="@string/consumer_header"
+        android:textColor="@color/secondary_text_color"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="32dp"
-        android:text="Текущий баланс:"
+        android:text="@string/consumer_text_currentBalance"
+        android:textColor="@color/secondary_text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/consumer_header"
         app:layout_constraintTop_toBottomOf="@+id/consumer_header" />
@@ -35,7 +36,7 @@
         android:id="@+id/consumer_text_dbBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 руб."
+        android:text="@string/consumer_text_dbBalance"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/consumer_text_currentBalance"
         app:layout_constraintTop_toBottomOf="@+id/consumer_text_currentBalance" />
@@ -45,7 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Сформировать токен"
+        android:text="@string/consumer_button_makeQR"
+        android:textColor="@color/primary_text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consumer_text_dbBalance" />
@@ -55,20 +57,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="QR вашего кошелька:"
-        android:textSize="20dp"
+        android:text="@string/consumer_text_aboutQR"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consumer_button_makeQR" />
 
     <ImageView
-        android:id="@+id/cosumer_image_QR"
+        android:id="@+id/consumer_image_QR"
         android:layout_width="256dp"
         android:layout_height="256dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/consumer_text_aboutQR" />
+        app:layout_constraintTop_toBottomOf="@+id/consumer_text_aboutQR"
+        android:contentDescription="@string/consumer_image_description" />
 </androidx.constraintlayout.widget.ConstraintLayout>
