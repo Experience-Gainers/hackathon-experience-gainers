@@ -9,21 +9,17 @@
         android:id="@+id/fragment_login"
         android:name="ru.eg.sellersapplication.presentation.ui.fragments.login.FragmentLogin"
         android:label="@string/loginFragmentLabel"
-        tools:layout="@layout/fragment_auth">
+        tools:layout="@layout/fragment_login">
         <argument
             android:name="pref_id"
             app:argType="string"
             app:nullable="true"
             android:defaultValue="null"/>
-
-        <action
-            android:id="@+id/login_to_auth"
-            app:destination="@id/fragment_auth"/>
     </fragment>
 
     <fragment
         android:id="@+id/fragment_auth"
         android:name="ru.eg.sellersapplication.presentation.ui.fragments.auth.FragmentAuth"
         android:label="@string/authFragmentLabel"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_auth" />
 </navigation>
