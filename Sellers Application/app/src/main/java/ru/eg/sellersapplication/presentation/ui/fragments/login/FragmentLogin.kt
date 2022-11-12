@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import ru.eg.sellersapplication.databinding.FragmentLoginBinding
-import ru.eg.sellersapplication.presentation.utils.constants.SELLER_ID
 
 class FragmentLogin: Fragment() {
     private var _binding: FragmentLoginBinding? = null

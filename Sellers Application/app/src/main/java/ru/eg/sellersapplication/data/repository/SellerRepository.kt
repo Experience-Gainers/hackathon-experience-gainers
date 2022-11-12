@@ -15,6 +15,7 @@ class SellerRepository(
      * @param some Необходимые данные для запроса (если нужны)
      */
     suspend fun getData(some: Any): Any {
-        return sellerApi.getData()
+//        return sellerApi.getData()
+        return "hello"
     }
 }
