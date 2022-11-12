@@ -4,13 +4,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/icon_qiwi"
         android:label="@string/app_name"
         android:name=".presentation.ApplicationModule"
-        android:roundIcon="@drawable/ic_launcher_background"
+        android:roundIcon="@drawable/icon_qiwi"
         android:supportsRtl="true"
         android:theme="@style/SellersApplication"
-        tools:targetApi="33">
+        tools:targetApi="33"
+        android:hardwareAccelerated="true">
         <activity
             android:name=".presentation.ui.activities.ActivityMain"
             android:exported="true">

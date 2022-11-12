@@ -4,7 +4,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import retrofit2.http.GET
 
 /**
@@ -18,8 +17,8 @@ interface ConsumerApi {
     /**
      * Функция, которая кидает запрос. Лучше посмотреть доку ретрофита для формирования запросов
      */
-    @GET("endUrl")
-    suspend fun getConsumerData(): ConsumerData
+//    @GET("endUrl")
+//    suspend fun getConsumerData(): ConsumerData
 
     companion object {
         fun create(url: String): ConsumerApi {

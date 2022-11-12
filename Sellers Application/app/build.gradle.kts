@@ -61,4 +61,6 @@ dependencies {
     implementation(Dependencies.Retrofit.okHttp)
 
     implementation(Dependencies.Gson.gson)
+
+    implementation(Dependencies.ZxingEmbedded.zxingEmbedded)
 }

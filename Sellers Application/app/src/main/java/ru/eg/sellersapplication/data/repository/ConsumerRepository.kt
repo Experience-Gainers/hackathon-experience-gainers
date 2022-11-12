@@ -14,6 +14,7 @@ class ConsumerRepository(
      * @param some Необходимые данные для запроса (если нужны)
      */
     suspend fun getData(some: Any): Any {
-        return consumerApi.getConsumerData()
+//        return consumerApi.getConsumerData()
+        return "hello"
     }
 }

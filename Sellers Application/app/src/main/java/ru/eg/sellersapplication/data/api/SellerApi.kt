@@ -18,8 +18,8 @@ interface SellerApi {
     /**
      * Функция, которая кидает запрос. Лучше посмотреть доку ретрофита для формирования запросов
      */
-    @GET("everything")
-    suspend fun getData(): SellerData
+//    @GET("everything")
+//    suspend fun getData(): SellerData
 
     companion object {
         fun create(url: String): SellerApi {
