@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.eg.sellersapplication.presentation.ui.fragments.FragmentConsumer">
+    tools:context="ru.eg.sellersapplication.presentation.ui.fragments.consumer.FragmentConsumer">
 
     <TextView
         android:id="@+id/consumer_header"
@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="@string/consumer_header"
-        android:textColor="@color/secondary_text_color"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +26,6 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="32dp"
         android:text="@string/consumer_text_currentBalance"
-        android:textColor="@color/secondary_text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/consumer_header"
         app:layout_constraintTop_toBottomOf="@+id/consumer_header" />
@@ -47,7 +45,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/consumer_button_makeQR"
-        android:textColor="@color/primary_text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consumer_text_dbBalance" />
@@ -58,7 +55,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/consumer_text_aboutQR"
-        android:textColor="@color/secondary_text_color"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
