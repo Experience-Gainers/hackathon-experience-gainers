@@ -21,7 +21,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/seller_card_processing"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,6 @@
 
         <LinearLayout
             android:id="@+id/sellers_layout_processing"
-            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -71,9 +70,20 @@
                 android:text="@string/seller_button_confirm"/>
 
         </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/seller_card_stateStatus"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="10sp">
 
         <LinearLayout
-            android:visibility="gone"
             android:id="@+id/seller_layout_stateStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,6 +116,7 @@
                 />
 
         </LinearLayout>
+
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.button.MaterialButton

@@ -12,7 +12,7 @@
     <string name="consumer_text_currentBalance">Текущий баланс:</string>
     <string name="consumer_text_dbBalance">0 руб.</string>
     <string name="consumer_button_makeQR">Сформировать токен</string>
-    <string name="consumer_text_aboutQR">QR вашего кошелька:</string>
+    <string name="consumer_text_aboutQR">QR-код вашего кошелька:</string>
     <string name="consumer_image_description">QR-code of consumer</string>
     <string name="seller_header">Название магазина</string>
     <string name="seller_text_makeBill">Выставление счёта</string>
