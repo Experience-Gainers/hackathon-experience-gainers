@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_login"
-        android:name="ru.eg.sellersapplication.presentation.ui.fragments.FragmentLogin"
+        android:name="ru.eg.sellersapplication.presentation.ui.fragments.login.FragmentLogin"
         android:label="@string/loginFragmentLabel"
         tools:layout="@layout/fragment_auth">
         <argument
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/fragment_auth"
-        android:name="ru.eg.sellersapplication.presentation.ui.fragments.FragmentAuth"
+        android:name="ru.eg.sellersapplication.presentation.ui.fragments.auth.FragmentAuth"
         android:label="@string/authFragmentLabel"
         tools:layout="@layout/fragment_login" />
 </navigation>

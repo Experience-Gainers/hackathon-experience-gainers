@@ -1,15 +1,13 @@
-package ru.eg.sellersapplication.presentation.ui.fragments
+package ru.eg.sellersapplication.presentation.ui.fragments.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import ru.eg.sellersapplication.R
 import ru.eg.sellersapplication.databinding.FragmentLoginBinding
 
-class FragmentLogin: Fragment() {
+class FragmentAuth : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
@@ -18,9 +16,7 @@ class FragmentLogin: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
-
-        setButtonsClickListener()
+        _binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
 
         return binding.root
     }
@@ -30,8 +26,4 @@ class FragmentLogin: Fragment() {
         _binding = null
     }
 
-    private fun setButtonsClickListener() {
-        binding.loginButtonSeller.setOnClickListener { requireView().findNavController() }
-        binding.loginButtonConsumer.setOnClickListener { requireView().findNavController() }
-    }
 }
