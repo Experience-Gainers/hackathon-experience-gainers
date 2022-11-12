@@ -1,5 +1,10 @@
 package ru.eg.sellersapplication.data.api
 
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import retrofit2.http.GET
 
 /**
@@ -15,4 +20,19 @@ interface ConsumerApi {
      */
     @GET("endUrl")
     suspend fun getConsumerData(): ConsumerData
+
+    companion object {
+        fun create(url: String): ConsumerApi {
+            val httpLogger = HttpLoggingInterceptor().apply { HttpLoggingInterceptor.Level.BASIC }
+
+            val httpClient = OkHttpClient.Builder().addInterceptor(httpLogger).build()
+
+            return Retrofit.Builder()
+                .baseUrl(url)
+                .client(httpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(ConsumerApi::class.java)
+        }
+    }
 }

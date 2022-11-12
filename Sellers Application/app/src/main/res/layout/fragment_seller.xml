@@ -8,29 +8,20 @@
     tools:context="ru.eg.sellersapplication.presentation.ui.fragments.seller.FragmentSeller">
 
     <TextView
-        android:id="@+id/seller_header"
+        android:id="@+id/seller_text_makeBill"
         style="@style/SellersApplication.Text.Headline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/seller_header"
+        android:text="@string/seller_text_makeBill"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/seller_text_makeBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/seller_text_makeBill"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/seller_header"
-        app:layout_constraintTop_toBottomOf="@+id/seller_header" />
-
-    <TextView
         android:id="@+id/seller_text_pointSumBill"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -41,6 +32,7 @@
 
     <EditText
         android:id="@+id/seller_editText_sumOfBill"
+        android:visibility="gone"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -49,13 +41,17 @@
         app:layout_constraintStart_toStartOf="@+id/seller_text_pointSumBill"
         app:layout_constraintTop_toBottomOf="@+id/seller_text_pointSumBill" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/seller_button"
+        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        app:cornerRadius="16dp"
         android:text="@string/seller_button"
-        app:layout_constraintStart_toStartOf="@+id/seller_editText_sumOfBill"
-        app:layout_constraintTop_toBottomOf="@+id/seller_editText_sumOfBill" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
