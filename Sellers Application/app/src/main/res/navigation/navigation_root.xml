@@ -15,11 +15,22 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="null"/>
+        <action
+            android:id="@+id/action_fragment_login_to_fragmentConsumer"
+            app:destination="@id/fragmentConsumer" />
+        <action
+            android:id="@+id/action_fragment_login_to_fragmentSeller"
+            app:destination="@id/fragmentSeller" />
     </fragment>
-
     <fragment
-        android:id="@+id/fragment_auth"
-        android:name="ru.eg.sellersapplication.presentation.ui.fragments.auth.FragmentAuth"
-        android:label="@string/authFragmentLabel"
-        tools:layout="@layout/fragment_auth" />
+        android:id="@+id/fragmentConsumer"
+        android:name="ru.eg.sellersapplication.presentation.ui.fragments.FragmentConsumer"
+        android:label="fragment_consumer"
+        tools:layout="@layout/fragment_consumer" />
+    <fragment
+        android:id="@+id/fragmentSeller"
+        android:name="ru.eg.sellersapplication.presentation.ui.fragments.FragmentSeller"
+        android:label="fragment_seller"
+        tools:layout="@layout/fragment_seller" />
+
 </navigation>
