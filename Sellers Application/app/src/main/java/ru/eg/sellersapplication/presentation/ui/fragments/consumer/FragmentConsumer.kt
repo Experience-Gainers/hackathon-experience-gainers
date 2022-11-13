@@ -18,6 +18,7 @@ import com.google.zxing.qrcode.QRCodeWriter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.eg.sellersapplication.R
 import ru.eg.sellersapplication.databinding.FragmentConsumerBinding
+import java.util.UUID
 
 class FragmentConsumer: Fragment() {
     private val viewModelConsumer by viewModel<ViewModelConsumer>()
@@ -33,7 +34,9 @@ class FragmentConsumer: Fragment() {
         _binding = FragmentConsumerBinding.inflate(inflater, container, false)
 
         binding.consumerButtonMakeQR.setOnClickListener{
-            binding.consumerImageQR.setImageBitmap(getQrCodeBitmap("30816ce4-396b-49d4-b75f-f0cbb13ff77e"))
+            val requestId = UUID.randomUUID().toString()
+            val accountID = UUID.randomUUID().toString()
+            binding.consumerImageQR.setImageBitmap(getQrCodeBitmap(requestId, accountID))
         }
 
         return binding.root
@@ -41,10 +44,12 @@ class FragmentConsumer: Fragment() {
 
     // Генератор QR-кода, решение ниже
     // https://stackoverflow.com/questions/64443791/android-qr-generator-api
-    fun getQrCodeBitmap(token: String): Bitmap {
+
+    fun getQrCodeBitmap(requestId: String, accountID: String): Bitmap {
         val size = 512 //pixels
+        val qrCodeContent = "$requestId, $accountID" //собственно эта строка и будет содержимым куара, в дальнейшем нужно будет разделить
         val hints = hashMapOf<EncodeHintType, Int>().also { it[EncodeHintType.MARGIN] = 1 } // Make the QR code buffer border narrower
-        val bits = QRCodeWriter().encode(token, BarcodeFormat.QR_CODE, size, size)
+        val bits = QRCodeWriter().encode(qrCodeContent, BarcodeFormat.QR_CODE, size, size)
         return Bitmap.createBitmap(size, size, Bitmap.Config.RGB_565).also {
             for (x in 0 until size) {
                 for (y in 0 until size) {
@@ -55,7 +60,7 @@ class FragmentConsumer: Fragment() {
     }
 
     private fun setClickListeners() {
-        TODO(reason = "Set listeners on button")
+        TODO("Set listeners on button")
     }
 
     private fun observeBitmap() {
