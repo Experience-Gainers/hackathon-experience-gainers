@@ -1,0 +1,264 @@
+---
+openapi: 3.0.3
+info:
+  title: challenger-hackathon API
+  version: 1.0-SNAPSHOT
+tags:
+- name: Bill API
+  description: Bill operations
+- name: Payer API
+  description: Payer operations
+paths:
+  /bill:
+    post:
+      tags:
+      - Bill API
+      summary: Handles bill creation
+      description: Handles bill creation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBillEntity'
+      responses:
+        "200":
+          description: Bill created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateBillResponse'
+        "400":
+          description: Bad request
+  /bill/{accountId}:
+    get:
+      tags:
+      - Bill API
+      summary: Handles retrieval bill by account id
+      description: Handles retrieval bill by account id
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: Bad request
+  /bill/{accountId}/pay:
+    get:
+      tags:
+      - Bill API
+      summary: Handles bill confirmation
+      description: Handles bill confirmation
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          pattern: \S
+          type: string
+      responses:
+        "200":
+          description: Bill confirmed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateBillResponse'
+        "400":
+          description: Bad request
+  /payer/token/confirm/{siteId}:
+    post:
+      tags:
+      - Payer API
+      summary: Handles payer token confirmation
+      description: Handles payer token confirmation
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: sa3khn-11
+      - name: x-account-id
+        in: header
+        required: true
+        schema:
+          pattern: \S
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayerConfirmation'
+      responses:
+        "200":
+          description: Payer token is being confirmed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayerTokenResponse'
+        "400":
+          description: Bad request
+  /payer/token/init/{siteId}:
+    post:
+      tags:
+      - Payer API
+      summary: Handles payer token init
+      description: Handles payer token init
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          pattern: \S
+          type: string
+          example: sa3khn-11
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayerInitToken'
+      responses:
+        "200":
+          description: Payer token is being initialized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayerTokenResponse'
+        "400":
+          description: Bad request
+components:
+  schemas:
+    Amount:
+      required:
+      - currency
+      type: object
+      properties:
+        currency:
+          pattern: \S
+          type: string
+          example: RUB
+        value:
+          minimum: 1
+          pattern: "^\\d{1,10}([.]\\d{1,2})?$"
+          type: number
+          example: 100.0
+    CreateBillEntity:
+      type: object
+      properties:
+        amount:
+          $ref: '#/components/schemas/Amount'
+        paymentMethod:
+          $ref: '#/components/schemas/PaymentMethod'
+        customer:
+          $ref: '#/components/schemas/Customer'
+    CreateBillResponse:
+      type: object
+      properties:
+        billId:
+          type: string
+        invoiceUid:
+          type: string
+        amount:
+          $ref: '#/components/schemas/Amount'
+        expirationDateTime:
+          $ref: '#/components/schemas/Instant'
+        status:
+          $ref: '#/components/schemas/Status'
+        customer:
+          $ref: '#/components/schemas/Customer'
+        flags:
+          type: array
+          items:
+            type: string
+        payUrl:
+          type: string
+    Customer:
+      required:
+      - account
+      type: object
+      properties:
+        account:
+          pattern: \S
+          type: string
+          example: 437c71a4-8517-4134-8b3f-a9f11d83548b
+    Instant:
+      format: date-time
+      type: string
+      example: 2022-03-10T16:15:50Z
+    PayerConfirmation:
+      required:
+      - requestId
+      - smsCode
+      type: object
+      properties:
+        requestId:
+          pattern: \S
+          type: string
+          example: 2cba83e9-26c4-48db-ab03-465bb170255e
+        smsCode:
+          pattern: \S
+          type: string
+          example: "1276"
+    PayerInitToken:
+      required:
+      - requestId
+      - phone
+      - accountId
+      type: object
+      properties:
+        requestId:
+          pattern: \S
+          type: string
+          example: 976d3b41-eb34-4192-b6dc-8595f7661cc1
+        phone:
+          pattern: \S
+          type: string
+          example: "78000000005"
+        accountId:
+          pattern: \S
+          type: string
+          example: 437c71a4-8517-4134-8b3f-a9f11d83548b
+    PayerToken:
+      type: object
+      properties:
+        value:
+          type: string
+        expiredDate:
+          $ref: '#/components/schemas/Instant'
+    PayerTokenResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+        status:
+          $ref: '#/components/schemas/Status'
+        token:
+          $ref: '#/components/schemas/PayerToken'
+    PaymentMethod:
+      required:
+      - paymentToken
+      - type
+      type: object
+      properties:
+        paymentToken:
+          pattern: \S
+          type: string
+          example: d83aa5ce-a60f-4798-b98b-17e8249e8d29
+        type:
+          pattern: \S
+          type: string
+          example: TOKEN
+    Status:
+      type: object
+      properties:
+        value:
+          type: string
+        changedDateTime:
+          $ref: '#/components/schemas/Instant'
