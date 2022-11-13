@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Seller\'s Application</string>
+    <string name="app_name">Payment App</string>
     <string name="label_login">Login Page</string>
     <string name="label_auth">Authentication Page</string>
     <string name="label_consumer">Consumer Page</string>

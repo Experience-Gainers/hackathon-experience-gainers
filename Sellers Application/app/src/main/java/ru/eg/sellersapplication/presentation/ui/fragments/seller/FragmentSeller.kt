@@ -16,6 +16,14 @@ class FragmentSeller: Fragment() {
     private var _binding: FragmentSellerBinding? = null
     private val binding get() = _binding!!
 
+    private val scanner = registerForActivityResult(ScanContract()) { result ->
+        if (result.contents != null) {
+            viewModelSeller.setData(result.contents.split('/'))
+            binding.sellerButtonScanQR.visibility = View.GONE
+            binding.sellerCardProcessing.visibility = View.VISIBLE
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,14 +40,6 @@ class FragmentSeller: Fragment() {
 
     private fun setClickListeners() {
         binding.sellerButtonScanQR.setOnClickListener {
-            val scanner = registerForActivityResult(ScanContract()) { result ->
-                if (result.contents != null) {
-                    viewModelSeller.setData(result.contents.split('/'))
-                    binding.sellerButtonScanQR.visibility = View.GONE
-                    binding.sellerCardProcessing.visibility = View.VISIBLE
-                }
-            }
-
             scanner.launch(ScanOptions())
         }
 
