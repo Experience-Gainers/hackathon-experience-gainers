@@ -49,7 +49,7 @@ class FragmentConsumer: Fragment() {
             binding.consumerButtonMakeQR.visibility = View.GONE
         }
 
-        binding.consumerCardConfirmBill.setOnClickListener {
+        binding.consumerButtonConfirmBill.setOnClickListener {
             val reqId = activity
                 ?.getSharedPreferences(SHARED_DATA, Context.MODE_PRIVATE)!!
                 .getString(CUSTOMER_ID_KEY, "")!!
