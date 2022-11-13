@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.eg.sellersapplication.data.pojo.Amount
@@ -89,6 +90,7 @@ class ViewModelConsumer(
                 if (status.code() == 200) {
                     isSuccessful = false
                 } else if (status.code() == 404) {
+                    delay(2000)
                     status = consumerRepository.getStatus(reqId)
                 }
             }
