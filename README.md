@@ -2,11 +2,7 @@
 Код для трека №3 на хакатон Hack&amp;Change 2022
 
 ## Backend стек
-Todo...
+[Backend](https://github.com/Experience-Gainers/hackathon-experience-gainers/tree/backend#readme)
 
 ## Mobile стек
-1. Kotlin
-2. Android navigation
-3. Coroutines
-4. Retrofit+okHttp
-5. Flow/LiveData
+[Mobile](https://github.com/Experience-Gainers/hackathon-experience-gainers/tree/develop#readme)
