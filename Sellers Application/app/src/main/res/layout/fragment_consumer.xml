@@ -20,7 +20,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/consumer_button_makeQR"
-        android:visibility="gone"
+        android:visibility="visible"
         style="@style/SellersApplication.Text.BodyL.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/consumer_card_stateStatus"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,12 +60,14 @@
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/consumer_icon_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_state_success"
                 android:layout_gravity="center"/>
 
             <TextView
+                android:id="@+id/consumer_text_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/seller_text_stateSuccess"
@@ -76,7 +78,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/consumer_card_confirmBill"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="12dp"
@@ -86,8 +88,8 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="36dp">
 
@@ -98,6 +100,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
+                android:id="@+id/consumer_text_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

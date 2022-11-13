@@ -3,9 +3,7 @@ package ru.eg.sellersapplication.data.repository
 import retrofit2.Response
 import ru.eg.sellersapplication.data.api.ConsumerApi
 import ru.eg.sellersapplication.data.mapper.ConsumerMapper
-import ru.eg.sellersapplication.data.pojo.consumer.ConsumerData
-import ru.eg.sellersapplication.data.pojo.consumer.ConsumerSms
-import ru.eg.sellersapplication.data.pojo.consumer.ConsumerToken
+import ru.eg.sellersapplication.data.pojo.consumer.*
 
 /**
  * Класс через который вызываются запросы к серверу. Data-domain в Clean
@@ -33,5 +31,13 @@ class ConsumerRepository(
     ): Response<ConsumerToken> {
         val data = mapper.toCode(reqId, code)
         return consumerApi.postCode(merchId, id, data)
+    }
+
+    suspend fun getStatus(reqId: String): Response<ConsumerStatus> {
+        return consumerApi.getStatus(reqId)
+    }
+
+    suspend fun accept(reqId: String): Response<ConsumerAccept> {
+        return consumerApi.accept(reqId)
     }
 }

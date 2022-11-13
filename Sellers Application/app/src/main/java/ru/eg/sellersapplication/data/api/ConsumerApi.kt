@@ -43,13 +43,13 @@ interface ConsumerApi {
      * GET запрос на получение статуса, ждем пока продавец не отсканирует QR
      */
     @GET("bill/{reqId}")
-    suspend fun getStatus(@Path("reqId") reqId: String): ConsumerStatus
+    suspend fun getStatus(@Path("reqId") reqId: String): Response<ConsumerStatus>
 
     /**
      * GET на отправку подтверждения платежа
      */
     @GET("bill/{reqId}/pay")
-    suspend fun accept(@Path("reqId") reqId: String): ConsumerAccept
+    suspend fun accept(@Path("reqId") reqId: String): Response<ConsumerAccept>
 
     companion object {
         fun create(url: String): ConsumerApi {

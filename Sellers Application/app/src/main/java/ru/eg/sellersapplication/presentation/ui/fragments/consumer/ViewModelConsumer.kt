@@ -1,6 +1,5 @@
 package ru.eg.sellersapplication.presentation.ui.fragments.consumer
 
-import android.content.SharedPreferences
 import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,6 +8,8 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import ru.eg.sellersapplication.data.pojo.Amount
+import ru.eg.sellersapplication.data.pojo.consumer.AcceptStatus
 import ru.eg.sellersapplication.data.pojo.consumer.ConsumerTok
 import ru.eg.sellersapplication.data.repository.ConsumerRepository
 import ru.eg.sellersapplication.presentation.utils.constants.ErrorCodes
@@ -21,6 +22,12 @@ class ViewModelConsumer(
 ): ViewModel() {
     private val _data = MutableLiveData<ConsumerTok>().apply { value = null }
     val data: LiveData<ConsumerTok> = _data
+
+    private val _price = MutableLiveData<Amount>().apply { value = null }
+    val price: LiveData<Amount> = _price
+
+    private val _answer = MutableLiveData<AcceptStatus>().apply { value = null }
+    val answer: LiveData<AcceptStatus> = _answer
 
     private val _error = MutableLiveData<ErrorCodes>().apply { value = null }
     val error: LiveData<ErrorCodes> = _error
@@ -55,10 +62,12 @@ class ViewModelConsumer(
                 val codeResult = consumerRepository.postCode(merchId, id, uuid, MOCK_SMS)
 
                 if (codeResult.isSuccessful) {
-                    _data.postValue(ConsumerTok(
-                        codeResult.body()!!.tok.value,
-                        codeResult.body()!!.tok.expDate
-                    ))
+                    _data.postValue(
+                        ConsumerTok(
+                            codeResult.body()!!.tok.value,
+                            codeResult.body()!!.tok.expDate
+                        )
+                    )
                 }
             } else {
                 withContext(Dispatchers.Main) {
@@ -68,7 +77,39 @@ class ViewModelConsumer(
         }
     }
 
-    fun waitResponse() {
-        
+    fun waitResponse(reqId: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            var isSuccessful = true
+            var status = consumerRepository.getStatus(reqId)
+
+            /*
+            Это "неправильная версия", лучше всего было бы сделать workmanager с запросами
+             */
+            while (isSuccessful) {
+                if (status.code() == 200) {
+                    isSuccessful = false
+                } else if (status.code() == 404) {
+                    status = consumerRepository.getStatus(reqId)
+                }
+            }
+
+            withContext(Dispatchers.Main) {
+                _price.postValue(status.body()!!.amount)
+            }
+        }
+    }
+
+    fun sendAnswer(reqId: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val answer = consumerRepository.accept(reqId)
+
+            if (answer.isSuccessful) {
+                withContext(Dispatchers.Main) {
+                    _answer.postValue(answer.body()!!.status)
+                }
+            } else {
+                _error.postValue(ErrorCodes.ACCEPT_ERROR)
+            }
+        }
     }
 }

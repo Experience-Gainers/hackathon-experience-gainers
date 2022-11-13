@@ -21,7 +21,7 @@ interface SellerApi {
      * POST на списание суммы. Сумму указывает продавец
      */
     @POST("/bill")
-    suspend fun acceptancePayment(@Body data: AcceptanceData): AcceptanceData
+    suspend fun acceptancePayment(@Body data: AcceptanceData)
 
     companion object {
         fun create(url: String): SellerApi {
