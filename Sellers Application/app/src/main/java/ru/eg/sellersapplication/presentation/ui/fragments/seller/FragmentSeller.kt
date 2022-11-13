@@ -6,22 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanOptions
+import io.github.g00fy2.quickie.ScanQRCode
 import ru.eg.sellersapplication.databinding.FragmentSellerBinding
 
 class FragmentSeller: Fragment() {
 
-
     private var _binding: FragmentSellerBinding? = null
     private val binding get() = _binding!!
-
-    private val codeScanContract = ScanContract()
-    private val codeScanner = registerForActivityResult(codeScanContract) { result ->
-        if (result.contents == null) {
-
-        } else {
-
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,10 +22,20 @@ class FragmentSeller: Fragment() {
     ): View {
         _binding = FragmentSellerBinding.inflate(inflater, container, false)
 
+        //
+        val scanQrCodeLauncher = registerForActivityResult(ScanQRCode()) {}
+        binding.sellerButtonScanQR.setOnClickListener {
+            scanQrCodeLauncher.launch(null)
+        }
+
         return binding.root
     }
 
+
+
     private fun setClickListeners() {
+
+
         TODO("Set click listeners")
     }
 }

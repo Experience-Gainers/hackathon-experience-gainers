@@ -21,7 +21,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/consumer_card_makeQR"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
@@ -113,7 +113,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/consumer_card_confirmBill"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"

@@ -74,7 +74,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/seller_card_stateStatus"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -121,8 +121,8 @@
 
     <com.google.android.material.button.MaterialButton
         style="@style/SellersApplication.Text.BodyL.Regular"
-        android:id="@+id/seller_button"
-        android:visibility="gone"
+        android:id="@+id/seller_button_scanQR"
+        android:visibility="visible"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="36dp"

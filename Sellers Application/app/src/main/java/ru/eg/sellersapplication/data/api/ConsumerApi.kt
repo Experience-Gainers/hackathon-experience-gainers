@@ -1,10 +1,15 @@
 package ru.eg.sellersapplication.data.api
 
+import android.service.autofill.UserData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
+import ru.eg.sellersapplication.data.pojo.ConsumerData
 
 /**
  * Интерфейс для Retrofit запросов на сервер. Запросы для покупателя.
@@ -17,6 +22,11 @@ interface ConsumerApi {
     /**
      * Функция, которая кидает запрос. Лучше посмотреть доку ретрофита для формирования запросов
      */
+
+    //попытался создать запрос на передачу accountId, phone, requestId
+    @POST("/payer/token/init/{siteId}")
+    suspend fun postConsumerData(@Body userData: UserData): Call<ConsumerData>
+
 //    @GET("endUrl")
 //    suspend fun getConsumerData(): ConsumerData
 

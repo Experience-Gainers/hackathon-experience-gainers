@@ -81,4 +81,10 @@ object Dependencies {
 
         const val zxingEmbedded = "com.journeyapps:zxing-android-embedded:$zxingEmbeddedVersion"
     }
+
+    object QR {
+        private const val quickieVersion = "1.5.2"
+        const val quickie = "io.github.g00fy2.quickie:quickie-bundled:$quickieVersion"
+    }
+
 }

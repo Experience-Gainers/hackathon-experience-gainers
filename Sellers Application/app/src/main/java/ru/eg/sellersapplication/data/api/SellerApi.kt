@@ -2,10 +2,13 @@ package ru.eg.sellersapplication.data.api
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
+import ru.eg.sellersapplication.data.pojo.SellerData
 
 /**
  * Интерфейс для Retrofit запросов на сервер. Запросы для продавца.
@@ -18,6 +21,10 @@ interface SellerApi {
     /**
      * Функция, которая кидает запрос. Лучше посмотреть доку ретрофита для формирования запросов
      */
+
+    //попытался реализовать запрос где третий шаг
+    @POST("/bill")
+    suspend fun postSellerData(sellerData: SellerData): Call<SellerData>
 //    @GET("everything")
 //    suspend fun getData(): SellerData
 
