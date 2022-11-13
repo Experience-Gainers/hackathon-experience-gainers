@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import ru.eg.sellersapplication.databinding.FragmentLoginBinding
 import ru.eg.sellersapplication.presentation.utils.constants.*
+import java.util.UUID
 
 class FragmentLogin: Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -43,7 +44,7 @@ class FragmentLogin: Fragment() {
 
             val sharedPref = activity?.getSharedPreferences(SHARED_DATA, Context.MODE_PRIVATE)!!
             with (sharedPref.edit()) {
-                putString(CUSTOMER_ID_KEY, MOCK_CUSTOMER_ID)
+                putString(CUSTOMER_ID_KEY, UUID.randomUUID().toString())
                 putString(CUSTOMER_PHONE, MOCK_PHONE)
                 apply()
             }
