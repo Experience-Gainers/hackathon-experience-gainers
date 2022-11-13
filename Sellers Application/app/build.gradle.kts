@@ -68,4 +68,6 @@ dependencies {
     implementation(Dependencies.Gson.gson)
 
     implementation(Dependencies.ZxingEmbedded.zxingEmbedded)
+
+    implementation(Dependencies.QR.quickie)
 }
