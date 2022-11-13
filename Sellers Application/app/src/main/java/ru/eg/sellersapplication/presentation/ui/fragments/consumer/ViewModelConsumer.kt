@@ -38,7 +38,7 @@ class ViewModelConsumer(
 
     fun getCode(content: String, width: Int, height: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = qrCreator(content, width, height)
+            val result = qrCreator(content, width * 2, height * 2)
 
             withContext(Dispatchers.Main) {
                 if (result.isCreated)

@@ -24,7 +24,7 @@
     <string name="seller_text_stateSuccess">Платёж совершен</string>
     <string name="seller_text_stateError">Платёж не совершен</string>
     <string name="consumer_text_billInformation">Информация о платеже</string>
-    <string name="consumer_text_textBillSum">Сумма: %d</string>
+    <string name="consumer_text_textBillSum">Сумма: %f</string>
     <string name="consumer_button_confirmBill">Подтвердить</string>
     <string name="qr_error_message">Произошла ошибка при создании QR-кода. Попробуйте ещё раз позднее</string>
 </resources>
