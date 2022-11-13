@@ -114,16 +114,18 @@ class FragmentConsumer: Fragment() {
 
     private fun observeAnswer() {
         viewModelConsumer.answer.observe(viewLifecycleOwner) { answer ->
-            when (answer.value) {
-                "COMPLETED" -> {
-                    binding.consumerIconStatus.setImageResource(R.drawable.icon_state_success)
-                    binding.consumerTextStatus.text = getText(R.string.seller_text_stateSuccess)
-                    binding.consumerCardStateStatus.visibility = View.VISIBLE
-                }
-                else -> {
-                    binding.consumerIconStatus.setImageResource(R.drawable.icon_state_error)
-                    binding.consumerTextStatus.text = getText(R.string.seller_text_stateError)
-                    binding.consumerCardStateStatus.visibility = View.VISIBLE
+            if (answer != null) {
+                when (answer.value) {
+                    "COMPLETED" -> {
+                        binding.consumerIconStatus.setImageResource(R.drawable.icon_state_success)
+                        binding.consumerTextStatus.text = getText(R.string.seller_text_stateSuccess)
+                        binding.consumerCardStateStatus.visibility = View.VISIBLE
+                    }
+                    else -> {
+                        binding.consumerIconStatus.setImageResource(R.drawable.icon_state_error)
+                        binding.consumerTextStatus.text = getText(R.string.seller_text_stateError)
+                        binding.consumerCardStateStatus.visibility = View.VISIBLE
+                    }
                 }
             }
         }
