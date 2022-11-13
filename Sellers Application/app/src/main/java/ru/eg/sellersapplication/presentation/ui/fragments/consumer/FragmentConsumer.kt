@@ -1,23 +1,12 @@
 package ru.eg.sellersapplication.presentation.ui.fragments.consumer
 
-import android.graphics.Bitmap
-import android.graphics.Color
-import android.graphics.Point
+import android.content.Context
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.*
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.EncodeHintType
-import com.google.zxing.qrcode.QRCodeWriter
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.eg.sellersapplication.R
 import ru.eg.sellersapplication.databinding.FragmentConsumerBinding
+import ru.eg.sellersapplication.presentation.utils.constants.*
 import java.util.UUID
 
 class FragmentConsumer: Fragment() {
@@ -33,46 +22,57 @@ class FragmentConsumer: Fragment() {
     ): View {
         _binding = FragmentConsumerBinding.inflate(inflater, container, false)
 
-        binding.consumerButtonMakeQR.setOnClickListener{
-            val requestId = UUID.randomUUID().toString()
-            val accountID = UUID.randomUUID().toString()
-            binding.consumerImageQR.setImageBitmap(getQrCodeBitmap(requestId, accountID))
-        }
-
         return binding.root
     }
 
-    // Генератор QR-кода, решение ниже
-    // https://stackoverflow.com/questions/64443791/android-qr-generator-api
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
-    fun getQrCodeBitmap(requestId: String, accountID: String): Bitmap {
-        val size = 512 //pixels
-        val qrCodeContent = "$requestId, $accountID" //собственно эта строка и будет содержимым куара, в дальнейшем нужно будет разделить
-        val hints = hashMapOf<EncodeHintType, Int>().also { it[EncodeHintType.MARGIN] = 1 } // Make the QR code buffer border narrower
-        val bits = QRCodeWriter().encode(qrCodeContent, BarcodeFormat.QR_CODE, size, size)
-        return Bitmap.createBitmap(size, size, Bitmap.Config.RGB_565).also {
-            for (x in 0 until size) {
-                for (y in 0 until size) {
-                    it.setPixel(x, y, if (bits[x, y]) Color.BLACK else Color.WHITE)
-                }
+    private fun setClickListeners() {
+        binding.consumerButtonMakeQR.setOnClickListener {
+            val uuid = viewModelConsumer.getUuid()
+            val sharedPrefs = activity?.getSharedPreferences(SHARED_DATA, Context.MODE_PRIVATE)!!
+            val phone = sharedPrefs.getString(CUSTOMER_PHONE, "")!!
+            val id = sharedPrefs.getString(CUSTOMER_ID_KEY, "")!!
+            viewModelConsumer.createCode(MOCK_SELLER_ID, uuid, phone, id)
+
+            binding.consumerButtonMakeQR.visibility = View.GONE
+        }
+    }
+
+    private fun observeData() {
+        viewModelConsumer.data.observe(viewLifecycleOwner) { data ->
+            if (data != null)  {
+                val cusId = activity
+                    ?.getSharedPreferences(SHARED_DATA, Context.MODE_PRIVATE)!!
+                    .getString(CUSTOMER_ID_KEY, "")!!
+
+                val qrContent = data.value.plus("/").plus(cusId)
+                viewModelConsumer.getCode(
+                    qrContent,
+                    binding.consumerImageQR.width,
+                    binding.consumerImageQR.height
+                )
             }
         }
     }
 
-    private fun setClickListeners() {
-        TODO("Set listeners on button")
-    }
-
     private fun observeBitmap() {
         viewModelConsumer.bitmap.observe(viewLifecycleOwner) { bitmap ->
-            TODO("Binding bitmap")
+            if (bitmap != null) {
+                binding.consumerImageQR.setImageBitmap(bitmap)
+                binding.consumerImageQR.visibility = View.VISIBLE
+            }
         }
     }
 
     private fun observeError() {
         viewModelConsumer.error.observe(viewLifecycleOwner) { error ->
-            if (error.isNotEmpty())
-                TODO("Insert error")
+                /*
+                Тут обработка ошибок
+                 */
         }
     }
 }

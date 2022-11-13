@@ -14,76 +14,50 @@
         android:layout_marginTop="64dp"
         android:text="@string/consumer_header"
         android:textSize="40sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/consumer_button_makeQR"
+        android:visibility="gone"
+        style="@style/SellersApplication.Text.BodyL.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cornerRadius="16dp"
+        android:text="@string/consumer_button_makeQR"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/consumer_image_QR"
+            android:visibility="gone"
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:contentDescription="@string/consumer_image_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/consumer_card_makeQR"
+        android:id="@+id/consumer_card_stateStatus"
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        app:cardCornerRadius="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/consumer_header">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="36dp">
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/SellersApplication.Text.BodyL.Regular"
-                android:layout_gravity="center"
-                android:id="@+id/consumer_button_makeQR"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cornerRadius="16dp"
-                android:text="@string/consumer_button_makeQR"/>
-
-            <TextView
-                android:layout_gravity="center"
-                android:id="@+id/consumer_text_aboutQR"
-                style="@style/SellersApplication.Text.BodyL.Regular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:text="@string/consumer_text_aboutQR"
-                android:textSize="20sp"/>
-
-            <ImageView
-                android:layout_gravity="center"
-                android:id="@+id/consumer_image_QR"
-                android:layout_width="256dp"
-                android:layout_height="256dp"
-                android:layout_marginTop="20dp"
-                android:contentDescription="@string/consumer_image_description"/>
-
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:visibility="gone"
-        android:id="@+id/consumer_card_stateStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/consumer_header"
-        >
-
-        <LinearLayout
-            android:id="@+id/seller_layout_stateStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:padding="32dp"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="wrap_content"
@@ -97,30 +71,19 @@
                 android:text="@string/seller_text_stateSuccess"
                 android:layout_marginTop="24dp"
                 style="@style/SellersApplication.Text.Headline4"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/SellersApplication.Text.BodyL.Regular"
-                android:backgroundTint="@color/white"
-                android:text="@string/seller_button_OK"
-                android:layout_marginTop="16dp"
-                android:layout_gravity="center"
-                android:textColor="@color/default_text_color"
-                />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/consumer_card_confirmBill"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
         app:cardCornerRadius="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/consumer_header"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -132,34 +95,27 @@
                 style="@style/SellersApplication.Text.Headline2"
                 android:text="@string/consumer_text_billInformation"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 style="@style/SellersApplication.Text.BodyL.Medium"
-                android:text="@string/consumer_text_textBillSum" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/SellersApplication.Text.BodyL.Regular"
-                android:text="@string/consumer_text_billSum"/>
+                android:text="@string/consumer_text_textBillSum"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/consumer_button_confirmBill"
                 android:paddingHorizontal="28dp"
-                app:cornerRadius="10dp"
+                app:cornerRadius="8dp"
                 style="@style/SellersApplication.Text.BodyL.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_gravity="center"
                 android:text="@string/consumer_button_confirmBill"/>
-
         </LinearLayout>
-
     </com.google.android.material.card.MaterialCardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

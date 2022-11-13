@@ -1,5 +1,6 @@
 package ru.eg.sellersapplication.presentation.ui.fragments.login
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import ru.eg.sellersapplication.databinding.FragmentLoginBinding
+import ru.eg.sellersapplication.presentation.utils.constants.*
 
 class FragmentLogin: Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -38,6 +40,13 @@ class FragmentLogin: Fragment() {
         binding.loginButtonConsumer.setOnClickListener { view ->
             val linkWithArgs = FragmentLoginDirections.loginToConsumer()
             view.findNavController().navigate(linkWithArgs)
+
+            val sharedPref = activity?.getSharedPreferences(SHARED_DATA, Context.MODE_PRIVATE)!!
+            with (sharedPref.edit()) {
+                putString(CUSTOMER_ID_KEY, MOCK_CUSTOMER_ID)
+                putString(CUSTOMER_PHONE, MOCK_PHONE)
+                apply()
+            }
         }
     }
 }

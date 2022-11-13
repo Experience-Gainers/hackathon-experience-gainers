@@ -1,15 +1,16 @@
 package ru.eg.sellersapplication.data.api
 
-import android.service.autofill.UserData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
-import ru.eg.sellersapplication.data.pojo.ConsumerData
+import retrofit2.http.Path
+import ru.eg.sellersapplication.data.pojo.consumer.*
 
 /**
  * Интерфейс для Retrofit запросов на сервер. Запросы для покупателя.
@@ -20,15 +21,35 @@ import ru.eg.sellersapplication.data.pojo.ConsumerData
 interface ConsumerApi {
 
     /**
-     * Функция, которая кидает запрос. Лучше посмотреть доку ретрофита для формирования запросов
+     * POST на сервер для перехода к отправке смс
      */
+    @POST("payer/token/init/{siteId}")
+    suspend fun postConsumerData(
+        @Path("siteId") merchId: String,
+        @Body data: ConsumerData
+    ): Response<ConsumerSms>
 
-    //попытался создать запрос на передачу accountId, phone, requestId
-    @POST("/payer/token/init/{siteId}")
-    suspend fun postConsumerData(@Body userData: UserData): Call<ConsumerData>
+    /**
+     * POST на сервер для отправки кода из SMS
+     */
+    @POST("payer/token/confirm/{siteId}")
+    suspend fun postCode(
+        @Path("siteId") merchId: String,
+        @Header("x-account-id") header: String,
+        @Body data: ConsumerPostSms
+    ): Response<ConsumerToken>
 
-//    @GET("endUrl")
-//    suspend fun getConsumerData(): ConsumerData
+    /**
+     * GET запрос на получение статуса, ждем пока продавец не отсканирует QR
+     */
+    @GET("bill/{reqId}")
+    suspend fun getStatus(@Path("reqId") reqId: String): ConsumerStatus
+
+    /**
+     * GET на отправку подтверждения платежа
+     */
+    @GET("bill/{reqId}/pay")
+    suspend fun accept(@Path("reqId") reqId: String): ConsumerAccept
 
     companion object {
         fun create(url: String): ConsumerApi {

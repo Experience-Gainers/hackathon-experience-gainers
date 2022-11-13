@@ -5,9 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.journeyapps.barcodescanner.ScanContract
-import com.journeyapps.barcodescanner.ScanOptions
-import io.github.g00fy2.quickie.ScanQRCode
 import ru.eg.sellersapplication.databinding.FragmentSellerBinding
 
 class FragmentSeller: Fragment() {
@@ -34,8 +31,6 @@ class FragmentSeller: Fragment() {
 
 
     private fun setClickListeners() {
-
-
         TODO("Set click listeners")
     }
 }
