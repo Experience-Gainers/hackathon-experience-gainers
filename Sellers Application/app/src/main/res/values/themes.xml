@@ -4,5 +4,6 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/brand_color</item>
         <item name="android:windowBackground">@color/background_color</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 </resources>
